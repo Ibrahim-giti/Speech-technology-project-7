@@ -1,0 +1,22 @@
+[project]
+name = "speech-experiments"
+version = "0.1.0"
+requires-python = ">=3.10, <3.15"
+dependencies = [
+    "coqui-tts[cpu]",
+    "datasets",
+    "dotenv>=0.9.9",
+    "huggingface-hub>=0.26.0",
+    "ipykernel",
+    "ipywidgets>=8.1.8",
+    "soundfile",
+    "torch>=2.10.0",
+    "torchaudio>=2.10.0",
+    "torchcodec>=0.10.0",
+    "transformers>=4.47,<4.50",
+]
+
+[dependency-groups]
+dev = [
+    "pre-commit>=4.5.1",
+]
