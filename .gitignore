@@ -1,4 +1,4 @@
-.wav
+*.wav
 
 # Secrets
 .env
