@@ -1,5 +1,6 @@
 from datasets import load_dataset
 from torchcodec.decoders import AudioDecoder
+import random
 
 EMILIA_PATH = "Emilia/EN/*.tar"
 
@@ -34,17 +35,26 @@ def get_sample_text(sample):
 
 
 if __name__ == "__main__":
+    # dataset = load_emilia()
+    # print(dataset)
+    #
+    # sample: dict = next(iter(dataset))
+    # print(sample)
+    #
+    # text = get_sample_text(sample)
+    # print(f"Text: {text}")
+    #
+    # download_audio_file(sample, file_name="test_sample")
+    # print("Saved test_sample.wav")
+
     dataset = load_emilia()
-    print(dataset)
-
-    sample: dict = next(iter(dataset))
-    print(sample)
-
+    random_seed = random.randint(0, 10000)
+    shuffled_data = dataset.shuffle(seed=random_seed)
+    sample = next(iter(shuffled_data))
     text = get_sample_text(sample)
-    print(f"Text: {text}")
+    print(f"Random Text: {text}")
+    download_audio_file(sample, file_name="random_sample")
 
-    download_audio_file(sample, file_name="test_sample")
-    print("Saved test_sample.wav")
 
 
 # #region Order by Pitch
