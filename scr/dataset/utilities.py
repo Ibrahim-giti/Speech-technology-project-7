@@ -1,10 +1,17 @@
 from datasets import load_dataset
 from torchcodec.decoders import AudioDecoder
+from dotenv import load_dotenv
+from huggingface_hub import login
+import os
 
 EMILIA_PATH = "Emilia/EN/*.tar"
 
 
 def load_emilia(path=EMILIA_PATH):
+    load_dotenv()
+    login(token=os.getenv("HUGGINGFACE_TOKEN"))
+
+    print(f"Loading dataset from {path}")
     return load_dataset(
         "amphion/Emilia-Dataset",
         data_files={"en": path},
