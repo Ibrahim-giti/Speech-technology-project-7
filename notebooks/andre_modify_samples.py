@@ -33,4 +33,8 @@ def modify_f0_mean(input_path, output_path, factor):
 
 
 # Example: Increase f0 mean by 50% (factor of 1.5)
-modify_f0_mean("test_manipulate_original.wav", "output_increased_f0.wav", 1.5)
+
+factors = [0.75, 0.80, 0.85, 0.90, 0.95, 1.00, 1.05, 1.10, 1.15, 1.20, 1.25, 1.50, 1.75, 2.00, 2.50, 3.00]
+for f in factors:
+    name = f"modified_pitch/pitch_{f:4.2f}.wav"
+    modify_f0_mean("test_manipulate_original.wav", name, f)
